@@ -1,0 +1,137 @@
+object frmDemo: TfrmDemo
+  Left = 0
+  Top = 0
+  Caption = 'Rick Demostra'#231#227'o'
+  ClientHeight = 500
+  ClientWidth = 300
+  Fill.Color = xFF353535
+  Fill.Kind = Solid
+  Position = ScreenCenter
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [Desktop]
+  DesignerMasterStyle = 0
+  object lblConn: TLabel
+    Align = Center
+    StyledSettings = [Family]
+    Size.Width = 232.000000000000000000
+    Size.Height = 193.000000000000000000
+    Size.PlatformDefault = False
+    TextSettings.Font.Size = 26.000000000000000000
+    TextSettings.Font.StyleExt = {00060000000000000004000000}
+    TextSettings.FontColor = claWhite
+    TextSettings.HorzAlign = Center
+    Text = 'Aguardando...'
+    TabOrder = 0
+  end
+  object btnCheckConnection: TRectangle
+    Align = Bottom
+    Fill.Color = xFF3897F0
+    Margins.Left = 25.000000000000000000
+    Margins.Right = 25.000000000000000000
+    Margins.Bottom = 25.000000000000000000
+    Position.X = 25.000000000000000000
+    Position.Y = 225.000000000000000000
+    Size.Width = 250.000000000000000000
+    Size.Height = 55.000000000000000000
+    Size.PlatformDefault = False
+    Stroke.Kind = None
+    XRadius = 6.000000000000000000
+    YRadius = 6.000000000000000000
+    OnClick = btnCheckConnectionClick
+    object lblCheckConnection: TLabel
+      Align = Center
+      StyledSettings = [Family]
+      Size.Width = 175.000000000000000000
+      Size.Height = 31.000000000000000000
+      Size.PlatformDefault = False
+      TextSettings.Font.Size = 16.000000000000000000
+      TextSettings.Font.StyleExt = {00060000000000000004000000}
+      TextSettings.FontColor = claWhite
+      TextSettings.HorzAlign = Center
+      Text = 'Check Connection'
+      TabOrder = 0
+    end
+  end
+  object btnTestLink: TRectangle
+    Align = Bottom
+    Fill.Color = xFF3897F0
+    Margins.Left = 25.000000000000000000
+    Margins.Top = 35.000000000000000000
+    Margins.Right = 25.000000000000000000
+    Margins.Bottom = 25.000000000000000000
+    Position.X = 25.000000000000000000
+    Position.Y = 420.000000000000000000
+    Size.Width = 250.000000000000000000
+    Size.Height = 55.000000000000000000
+    Size.PlatformDefault = False
+    Stroke.Kind = None
+    XRadius = 6.000000000000000000
+    YRadius = 6.000000000000000000
+    OnClick = btnTestLinkClick
+    object lblTestLink: TLabel
+      Align = Center
+      StyledSettings = [Family]
+      Size.Width = 175.000000000000000000
+      Size.Height = 31.000000000000000000
+      Size.PlatformDefault = False
+      TextSettings.Font.Size = 16.000000000000000000
+      TextSettings.Font.StyleExt = {00060000000000000004000000}
+      TextSettings.FontColor = claWhite
+      TextSettings.HorzAlign = Center
+      Text = 'Test Link'
+      TabOrder = 0
+    end
+    object edtTestLink: TEdit
+      Touch.InteractiveGestures = [LongTap, DoubleTap]
+      StyleLookup = 'transparentedit'
+      TabOrder = 1
+      Text = 'https://google.com'
+      TextSettings.FontColor = claWhite
+      Position.Y = -31.000000000000000000
+      Margins.Top = 50.000000000000000000
+      Size.Width = 250.000000000000000000
+      Size.Height = 22.000000000000000000
+      Size.PlatformDefault = False
+      StyledSettings = [Family, Size, Style]
+      object lnTestLink: TLine
+        Align = Bottom
+        LineType = Bottom
+        Position.Y = 20.000000000000000000
+        Size.Width = 250.000000000000000000
+        Size.Height = 2.000000000000000000
+        Size.PlatformDefault = False
+        Stroke.Color = xFFD8D7D7
+      end
+    end
+  end
+  object btnConnectionType: TRectangle
+    Align = Bottom
+    Fill.Color = xFF3897F0
+    Margins.Left = 25.000000000000000000
+    Margins.Right = 25.000000000000000000
+    Margins.Bottom = 25.000000000000000000
+    Position.X = 25.000000000000000000
+    Position.Y = 305.000000000000000000
+    Size.Width = 250.000000000000000000
+    Size.Height = 55.000000000000000000
+    Size.PlatformDefault = False
+    Stroke.Kind = None
+    XRadius = 6.000000000000000000
+    YRadius = 6.000000000000000000
+    OnClick = btnConnectionTypeClick
+    object lblConnectionType: TLabel
+      Align = Center
+      StyledSettings = [Family]
+      Size.Width = 175.000000000000000000
+      Size.Height = 31.000000000000000000
+      Size.PlatformDefault = False
+      TextSettings.Font.Size = 16.000000000000000000
+      TextSettings.Font.StyleExt = {00060000000000000004000000}
+      TextSettings.FontColor = claWhite
+      TextSettings.HorzAlign = Center
+      Text = 'Connection Type'
+      TabOrder = 0
+    end
+  end
+end

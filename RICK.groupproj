@@ -1,0 +1,48 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{56609561-4645-4460-9E8B-B28B750B6625}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="RICKCheckConnection.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="src\DEMO\RICKCheckConnection.Demo.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="RICKCheckConnection">
+        <MSBuild Projects="RICKCheckConnection.dproj"/>
+    </Target>
+    <Target Name="RICKCheckConnection:Clean">
+        <MSBuild Projects="RICKCheckConnection.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="RICKCheckConnection:Make">
+        <MSBuild Projects="RICKCheckConnection.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="RICKCheckConnection_Demo">
+        <MSBuild Projects="src\DEMO\RICKCheckConnection.Demo.dproj"/>
+    </Target>
+    <Target Name="RICKCheckConnection_Demo:Clean">
+        <MSBuild Projects="src\DEMO\RICKCheckConnection.Demo.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="RICKCheckConnection_Demo:Make">
+        <MSBuild Projects="src\DEMO\RICKCheckConnection.Demo.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="RICKCheckConnection;RICKCheckConnection_Demo"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="RICKCheckConnection:Clean;RICKCheckConnection_Demo:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="RICKCheckConnection:Make;RICKCheckConnection_Demo:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>
