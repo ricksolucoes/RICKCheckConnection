@@ -1,7 +1,7 @@
 {
 	"name": "RICKCheckConnection",
 	"description": "Check and Type Connection",
-	"version": "1.0.2",
+	"version": "1.0.3",
 	"homepage": "",
 	"mainsrc": "./src",
 	"projects": [],

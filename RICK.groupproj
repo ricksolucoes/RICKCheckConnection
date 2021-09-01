@@ -6,7 +6,7 @@
         <Projects Include="RICKCheckConnection.dproj">
             <Dependencies/>
         </Projects>
-        <Projects Include="src\DEMO\RICKCheckConnection.Demo.dproj">
+        <Projects Include="Samples\Delphi\FMX\RICKCheckConnection.Demo.dproj">
             <Dependencies/>
         </Projects>
     </ItemGroup>
@@ -27,13 +27,13 @@
         <MSBuild Projects="RICKCheckConnection.dproj" Targets="Make"/>
     </Target>
     <Target Name="RICKCheckConnection_Demo">
-        <MSBuild Projects="src\DEMO\RICKCheckConnection.Demo.dproj"/>
+        <MSBuild Projects="Samples\Delphi\FMX\RICKCheckConnection.Demo.dproj"/>
     </Target>
     <Target Name="RICKCheckConnection_Demo:Clean">
-        <MSBuild Projects="src\DEMO\RICKCheckConnection.Demo.dproj" Targets="Clean"/>
+        <MSBuild Projects="Samples\Delphi\FMX\RICKCheckConnection.Demo.dproj" Targets="Clean"/>
     </Target>
     <Target Name="RICKCheckConnection_Demo:Make">
-        <MSBuild Projects="src\DEMO\RICKCheckConnection.Demo.dproj" Targets="Make"/>
+        <MSBuild Projects="Samples\Delphi\FMX\RICKCheckConnection.Demo.dproj" Targets="Make"/>
     </Target>
     <Target Name="Build">
         <CallTarget Targets="RICKCheckConnection;RICKCheckConnection_Demo"/>
