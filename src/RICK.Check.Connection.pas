@@ -14,6 +14,8 @@ type
   TRICKCheckConnection = class(TInterfacedObject, iRICKCheckConnection)
   private
     FConnectionType: string;
+    FURL: string;
+    FStatusCode: Integer;
 
     constructor Create;
   public
@@ -21,44 +23,45 @@ type
     class function New: iRICKCheckConnection;
 
     function ConnectionState: Boolean; overload;
-    function ConnectionState(AURL: string): Boolean; overload;
+    function URLState: Boolean; overload;
     function ConnectionType: string;
+    function URL(AValue: string): iRICKCheckConnection;
+    function ClearURL: iRICKCheckConnection;
+    function StatusCode(AValue: Integer): iRICKCheckConnection;
+    function ClearStausCode: iRICKCheckConnection;
   end;
 
 implementation
 
 { TRICKCheckConnection }
 
-function TRICKCheckConnection.ConnectionState(AURL: string): Boolean;
-const
-  URL = 'https://google.com';
+function TRICKCheckConnection.ClearStausCode: iRICKCheckConnection;
+begin
+  Result:= Self;
+  FStatusCode:= 0;
+end;
+
+function TRICKCheckConnection.ClearURL: iRICKCheckConnection;
+begin
+  Result:= Self;
+  FURL:= EmptyStr;
+end;
+
+function TRICKCheckConnection.URLState: Boolean;
 var
-  LStatusCode: Integer;
   LHTTPClient: THTTPClient;
 begin
   Result:= False;
   FConnectionType := 'Off Line';
 
-  LStatusCode := 200;
-  if AURL.Trim.IsEmpty then
-  begin
-    AURL := URL;
-    LStatusCode := 400;
-  end;
-
   LHTTPClient := THTTPClient.Create;
   try
     try
-      case LStatusCode of
-        200:
-          Result := LHTTPClient.Head(AURL).StatusCode = LStatusCode;
-        400:
-          Result := LHTTPClient.Head(AURL).StatusCode < LStatusCode;
-      end;
+      Result := LHTTPClient.Head(FURL).StatusCode <= FStatusCode;
 
       if Result then
         FConnectionType := 'ON Line';
-      
+
     except
     end;
   finally
@@ -92,7 +95,10 @@ begin
         Result := False;
       end;
 {$ELSE}
-      Result := ConnectionState(EmptyStr);
+      if FURL.Trim.IsEmpty then
+        FURL:= 'https://www.google.com/';
+
+      Result := URLState;
 {$ENDIF}
     except
       on E: exception do
@@ -116,7 +122,8 @@ end;
 
 constructor TRICKCheckConnection.Create;
 begin
-
+  FURL:= EmptyStr;
+  FStatusCode:= 400;
 end;
 
 destructor TRICKCheckConnection.Destroy;
@@ -128,6 +135,18 @@ end;
 class function TRICKCheckConnection.New: iRICKCheckConnection;
 begin
   Result := Self.Create;
+end;
+
+function TRICKCheckConnection.StatusCode(AValue: Integer): iRICKCheckConnection;
+begin
+  Result:= Self;
+  FStatusCode:= AValue;
+end;
+
+function TRICKCheckConnection.URL(AValue: string): iRICKCheckConnection;
+begin
+  Result:= Self;
+  FURL:= AValue;
 end;
 
 end.

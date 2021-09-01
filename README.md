@@ -60,11 +60,14 @@ var
   LRICKCheckConnection: iRICKCheckConnection;
 begin
   LRICKCheckConnection:= TRICKCheckConnection.New;
+  LRICKCheckConnection.ClearURL.URL('https://google.com');
+  LRICKCheckConnection.ClearStausCode.StatusCode(200); //Status Code Defualt 400
 
-  if LRICKCheckConnection.ConnectionState(edtTestLink.Text) then
+  if LRICKCheckConnection.URLState then
     Self.Fill.Color:= TAlphaColorRec.Blue
   else
     Self.Fill.Color:= TAlphaColorRec.Red;
+
 
   lblConn.Text:= LRICKCheckConnection.ConnectionType;
 end;</span></pre>

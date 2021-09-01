@@ -47,8 +47,10 @@ var
   LRICKCheckConnection: iRICKCheckConnection;
 begin
   LRICKCheckConnection:= TRICKCheckConnection.New;
+  LRICKCheckConnection.ClearURL.URL(edtTestLink.Text);
+  LRICKCheckConnection.ClearStausCode.StatusCode(200); //Status Code Defualt 400
 
-  if LRICKCheckConnection.ConnectionState(edtTestLink.Text) then
+  if LRICKCheckConnection.URLState then
     Self.Fill.Color:= TAlphaColorRec.Blue
   else
     Self.Fill.Color:= TAlphaColorRec.Red;
@@ -63,7 +65,7 @@ var
 begin
   LRICKCheckConnection:= TRICKCheckConnection.New;
 
-  if LRICKCheckConnection.ConnectionState(edtTestLink.Text) then
+  if LRICKCheckConnection.ConnectionState then
     Self.Fill.Color:= TAlphaColorRec.Blue
   else
     Self.Fill.Color:= TAlphaColorRec.Red;
