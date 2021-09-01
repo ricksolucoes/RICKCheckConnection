@@ -18,6 +18,7 @@ type
     lnTestLink: TLine;
     btnConnectionType: TRectangle;
     lblConnectionType: TLabel;
+    imgLogo: TImage;
     procedure btnCheckConnectionClick(Sender: TObject);
     procedure btnTestLinkClick(Sender: TObject);
     procedure btnConnectionTypeClick(Sender: TObject);
