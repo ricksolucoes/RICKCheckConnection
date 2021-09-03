@@ -113,7 +113,8 @@ function GetWifiManager: JWifiManager;
 var
   WifiManagerNative: JObject;
 begin
-  WifiManagerNative := SharedActivityContext.getSystemService(TJContext.JavaClass.WIFI_SERVICE);
+//  WifiManagerNative := SharedActivityContext.getSystemService(TJContext.JavaClass.WIFI_SERVICE);
+  WifiManagerNative := TAndroidHelper.Context.getSystemService(TJContext.JavaClass.WIFI_SERVICE);
   if not Assigned(WifiManagerNative) then
     raise Exception.Create('Could not locate Wifi Service');
   Result := TJWifiManager.Wrap((WifiManagerNative as ILocalObject).GetObjectID);
@@ -125,7 +126,8 @@ function GetConnectivityManager: JConnectivityManager;
 var
   ConnectivityServiceNative: JObject;
 begin
-  ConnectivityServiceNative := SharedActivityContext.getSystemService(TJContext.JavaClass.CONNECTIVITY_SERVICE);
+//  ConnectivityServiceNative := SharedActivityContext.getSystemService(TJContext.JavaClass.CONNECTIVITY_SERVICE);
+  ConnectivityServiceNative := TAndroidHelper.Context.getSystemService(TJContext.JavaClass.CONNECTIVITY_SERVICE);
   if not Assigned(ConnectivityServiceNative) then
     raise Exception.Create('Could not locate Connectivity Service');
   Result := TJConnectivityManager.Wrap((ConnectivityServiceNative as ILocalObject).GetObjectID);

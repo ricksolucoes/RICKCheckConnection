@@ -80,19 +80,18 @@ begin
   try
     try
 {$IFNDEF MSWINDOWS}
-      case LNetworkState of
-        IsWifiConnected:
-          begin
-            FConnectionType := 'Wifi';
-            Result := True;
-          end;
-        IsMobileConnected:
-          begin
-            FConnectionType := 'Mobile';
-            Result := True;
-          end;
-      else
-        Result := False;
+      Result:= LNetworkState.IsConnected;
+      if Result then
+      begin
+        FConnectionType := 'Wifi';
+        Exit;
+      end;
+
+      Result:= LNetworkState.IsMobileConnected;
+      if Result then
+      begin
+        FConnectionType := 'Mobile';
+        Exit;
       end;
 {$ELSE}
       if FURL.Trim.IsEmpty then
