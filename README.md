@@ -1,73 +1,77 @@
+[0]: https://github.com/ricksolucoes/boss "Site do BOOS"
+
 # RICKCheckConnection
 
-<p align="center">
-  <b>RICKCheckConnection</b> is a Delphi library designed to check the state and type(Mobile only) of the connection. Using delphi's Fluent Interface.<br> 
-</p>
+**RICKCheckConnection**  is a Delphi library designed to check the state and type(Mobile only) of the connection. Using delphi's Fluent Interface.
 
-<h2>⚙️ Install</h2>
-<p>*Pre-requisites Delphi FMX</p>
-<li><strong>Installation with BOSS</strong>: <br>
-<pre>$ boss install https://github.com/ricksolucoes/RICKCheckConnection</pre>
+## ⚙️ Pre-requisites
 
-<li><strong>Manual Installation</strong>: <br>
-Add the following folders to your project, in <em>Project &gt; Options &gt; Resource Compiler &gt; Directories and Conditionals &gt; Include file search path</em></li>
-<pre><code>../RICKCheckConnection/src</code></pre>
+1. Delphi FMX
+2. If you choose to use [BOOS][0] ```https://github.com/ricksolucoes/boss or https://github.com/HashLoad/boss```  the dependency manager, you will have the facility to install all frameworks that are [Pre-requisites](#pre-requisites) for the project.
 
-<h2>⚡️ How to use the project</h2>
-<pre><code>../RICKCheckConnection/src</code></pre>
+## 💻 Installation
 
-<li><strong>How to use incoming Internet.</strong>: <br>
+- By using BOOS
+```shell
+$ boss install https://github.com/ricksolucoes/RICKCheckConnection
+```
+- Manual Installation
+  - Download the RICKCheckConnection;
+  - Add the following folders to your project, in <em>Project &gt; Options &gt; Resource Compiler &gt; Directories and Conditionals &gt; Include file search path ``` ../RICKLibrary/src ```
 
-<pre><span class="pl-k">uses</span>
-  RICK.Check.Connection,
-  RICK.Check.Connection.Intefaces;
+ ## ⚡️ How to use the project
 
-<span class="pl-k">implementation</span>
+  Example of using the **RICKLibrary**
 
-var
-  LRICKCheckConnection: iRICKCheckConnection;
-begin
-  LRICKCheckConnection:= TRICKCheckConnection.New;
+- How to use incoming Internet
 
-  if LRICKCheckConnection.ConnectionState then
-    Self.Fill.Color:= TAlphaColorRec.Blue
-  else
-    Self.Fill.Color:= TAlphaColorRec.Red;
+```delphi  
+  uses
+    RICK.Check.Connection,
+    RICK.Check.Connection.Intefaces;
+  var
+    LRICKCheckConnection: iRICKCheckConnection;
+  begin
+    LRICKCheckConnection:= TRICKCheckConnection.New;
 
-  lblConn.Text:= LRICKCheckConnection.ConnectionType;
-end;</span></pre>
+    if LRICKCheckConnection.ConnectionState then
+      Self.Fill.Color:= TAlphaColorRec.Blue
+    else
+      Self.Fill.Color:= TAlphaColorRec.Red;
 
-<li><strong>How to use the connection type (Type is only available in Mobile. Desktop only ON and OFF)</strong>: <br>
+    lblConn.Text:= LRICKCheckConnection.ConnectionType;
+  end;
+```
 
-<pre><span class="pl-k">uses</span>
-  RICK.Check.Connection;
+- How to use the connection type (Type is only available in Mobile. Desktop only ON and OFF)
 
-<span class="pl-k">implementation</span>
+```delphi  
+  uses
+    RICK.Check.Connection;
+  begin
+    lblConn.Text:= LRICKCheckConnection.ConnectionType;
+  end;
+```
+  
+- How to use connection test for a given link.
 
-begin
-  lblConn.Text:= TRICKCheckConnection.New.ConnectionType;
-end;</span></pre>
+```delphi  
+  uses
+    RICK.Check.Connection,
+    RICK.Check.Connection.Intefaces;
+  var
+    LRICKCheckConnection: iRICKCheckConnection;
+  begin
+    LRICKCheckConnection:= TRICKCheckConnection.New;
+    LRICKCheckConnection.ClearURL.URL('https://google.com');
+    LRICKCheckConnection.ClearStausCode.StatusCode(200); //Status Code Defualt 400
 
-<li><strong>How to use connection test for a given link.</strong>: <br>
-
-<pre><span class="pl-k">uses</span>
-  RICK.Check.Connection,
-  RICK.Check.Connection.Intefaces;
-
-<span class="pl-k">implementation</span>
-
-var
-  LRICKCheckConnection: iRICKCheckConnection;
-begin
-  LRICKCheckConnection:= TRICKCheckConnection.New;
-  LRICKCheckConnection.ClearURL.URL('https://google.com');
-  LRICKCheckConnection.ClearStausCode.StatusCode(200); //Status Code Defualt 400
-
-  if LRICKCheckConnection.URLState then
-    Self.Fill.Color:= TAlphaColorRec.Blue
-  else
-    Self.Fill.Color:= TAlphaColorRec.Red;
+    if LRICKCheckConnection.URLState then
+      Self.Fill.Color:= TAlphaColorRec.Blue
+    else
+      Self.Fill.Color:= TAlphaColorRec.Red;
 
 
-  lblConn.Text:= LRICKCheckConnection.ConnectionType;
-end;</span></pre>
+    lblConn.Text:= LRICKCheckConnection.ConnectionType;
+  end;
+```
