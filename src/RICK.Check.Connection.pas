@@ -22,12 +22,12 @@ type
     destructor Destroy; override;
     class function New: iRICKCheckConnection;
 
-    function ConnectionState: Boolean; overload;
-    function URLState: Boolean; overload;
+    function ConnectionState: Boolean;
+    function URLState: Boolean;
     function ConnectionType: string;
-    function URL(AValue: string): iRICKCheckConnection;
+    function URL(Const AValue: string): iRICKCheckConnection;
     function ClearURL: iRICKCheckConnection;
-    function StatusCode(AValue: Integer): iRICKCheckConnection;
+    function StatusCode(Const AValue: Integer): iRICKCheckConnection;
     function ClearStausCode: iRICKCheckConnection;
   end;
 
@@ -136,13 +136,13 @@ begin
   Result := Self.Create;
 end;
 
-function TRICKCheckConnection.StatusCode(AValue: Integer): iRICKCheckConnection;
+function TRICKCheckConnection.StatusCode(Const AValue: Integer): iRICKCheckConnection;
 begin
   Result:= Self;
   FStatusCode:= AValue;
 end;
 
-function TRICKCheckConnection.URL(AValue: string): iRICKCheckConnection;
+function TRICKCheckConnection.URL(Const AValue: string): iRICKCheckConnection;
 begin
   Result:= Self;
   FURL:= AValue;
