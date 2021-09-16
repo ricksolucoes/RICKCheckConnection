@@ -80,7 +80,10 @@ begin
   try
     try
 {$IFNDEF MSWINDOWS}
-      Result:= LNetworkState.IsConnected;
+      if not LNetworkState.IsConnected then
+        Exit;
+
+      Result:= LNetworkState.IsWifiConnected;
       if Result then
       begin
         FConnectionType := 'Wifi';
