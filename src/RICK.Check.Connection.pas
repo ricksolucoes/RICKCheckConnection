@@ -80,7 +80,8 @@ begin
   try
     try
 {$IFNDEF MSWINDOWS}
-      if not LNetworkState.IsConnected then
+      Result:= LNetworkState.IsConnected;
+      if not Result then
         Exit;
 
       Result:= LNetworkState.IsWifiConnected;
