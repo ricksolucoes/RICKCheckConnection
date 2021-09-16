@@ -21,7 +21,7 @@ $ boss install https://github.com/ricksolucoes/RICKCheckConnection
 
  ## ⚡️ How to use the project
 
-  Example of using the **RICKLibrary**
+  Example of using the **RICKCheckConnection**
 
 - How to use incoming Internet
 
